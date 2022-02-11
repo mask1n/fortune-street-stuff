@@ -1,13 +1,13 @@
-0=	Mario
-1=	Luigi
-2=	Peach
-3=	Yoshi
-4=	Bowser
-5=	Toad
-6=	Donkey Kong
-7=	Wario
-8=	Waluigi
-9=	Daisy
+00=	Mario
+01=	Luigi
+02=	Peach
+03=	Yoshi
+04=	Bowser
+05=	Toad
+06=	Donkey Kong
+07=	Wario
+08=	Waluigi
+09=	Daisy
 10=	Birdo
 11=	Diddy Kong
 12=	Bowser Jr.
@@ -27,12 +27,6 @@
 26= Gumdrops
 27= Healie
 28= Lakitu
-29= Toad
-30= Slime 
-31= Mario (crashes ingame)
-32= Toad (crashes ingame) 
-33= Slime (crashes ingame)
-34= Mario (crashes ingame)
 35=	Mii (male) (doesn't load when forced)
 36= Mii (female)
 
