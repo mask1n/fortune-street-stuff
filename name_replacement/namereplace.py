@@ -86,7 +86,7 @@ def nameentry():
 ## before allowing them to input their names
 printed=False
 def waitformapselect(printed):
-    print("Waiting for the map select screen...")
+    print("Waiting for the board select screen...")
     scene = (dolphin_memory_engine.read_byte(0x808162EB))
     if scene == 7:
         nameentry()
