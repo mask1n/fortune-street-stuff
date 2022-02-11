@@ -15,19 +15,15 @@ def nameentry():
     cswtpalp2 = 0x81605100
     cswtpalp3 = 0x81605184
     cswtpalp4 = 0x81605208
-    ntscp1 = 0x816072FC
-    ntscp2 = 0x81607380
-    ntscp3 = 0x81607404
-    ntscp4 = 0x81607488
-    jppalp1 = 0x816072FC
-    jppalp2 = 0x81607380
-    jppalp3 = 0x81607404
-    jppalp4 = 0x81607488
-    if gameid == "ST7E01":
-        p1 = ntscp1
-        p2 = ntscp2
-        p3 = ntscp3
-        p4 = ntscp4
+    basep1 = 0x816072FC
+    basep2 = 0x81607380
+    basep3 = 0x81607404
+    basep4 = 0x81607488
+    if gameid == "ST7E01" or gameid == "ST7P01" or gameid == "ST7JGD":
+        p1 = basep1
+        p2 = basep2
+        p3 = basep3
+        p4 = basep4
     else:
         if gameid=="ST7E02":
             p1 = cswtp1
@@ -35,12 +31,6 @@ def nameentry():
             p3 = cswtp3
             p4 = cswtp4
         else:
-            if gameid=="ST7P01" or gameid=="ST7JGD":
-                    p1 = jppalp1
-                    p2 = jppalp2
-                    p3 = jppalp3
-                    p4 = jppalp4
-            else:
                 if gameid=="ST7P02":
                     p1 = cswtpalp1
                     p2 = cswtpalp2
