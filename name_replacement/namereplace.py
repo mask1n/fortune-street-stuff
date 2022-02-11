@@ -24,10 +24,10 @@ if gameid!= "ST7E02":
 else:
 
 ## (use these once PAL and vanilla ISOs are supported)
-    cswtp1 = ("0x8160411D")
-    cswtp2 = ("0x816041A1")
-    cswtp3 = ("0x81604225")
-    cswtp4 = ("0x816042A9")
+    cswtp1 = ("0x8160411C")
+    cswtp2 = ("0x816041A0")
+    cswtp3 = ("0x81604224")
+    cswtp4 = ("0x816042A8")
 
 ## Name decoding and entry routine
 def nameentry():
