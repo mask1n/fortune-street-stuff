@@ -1,5 +1,5 @@
 # Name replacement script for Custom Street World Tour (CSWT)
-Changes character names in-game without needing to modify the ISO or inject bytes into memory manually
+Changes character names in-game without needing to modify the ISO or manually inject bytes into memory
 ![image](https://user-images.githubusercontent.com/83397594/153525128-cef5e3e0-39e9-48e1-8e5f-2a12a617e6e3.png)
 
 ## Requirements
