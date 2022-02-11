@@ -309,7 +309,7 @@
             "unsigned": false
         },
         {
-            "address": "8160411D",
+            "address": "8160411C",
             "baseIndex": 0,
             "label": "P1 Name (CSWT)",
             "length": 22,
@@ -324,7 +324,7 @@
             "unsigned": false
         },
         {
-            "address": "816041A1",
+            "address": "816041A0",
             "baseIndex": 0,
             "label": "P2 Name (CSWT)",
             "length": 22,
@@ -339,7 +339,7 @@
             "unsigned": false
         },
         {
-            "address": "81604225",
+            "address": "81604224",
             "baseIndex": 0,
             "label": "P3 Name (CSWT)",
             "length": 22,
@@ -354,7 +354,7 @@
             "unsigned": false
         },
         {
-            "address": "816042A9",
+            "address": "816042A8",
             "baseIndex": 0,
             "label": "P4 Name (CSWT)",
             "length": 22,

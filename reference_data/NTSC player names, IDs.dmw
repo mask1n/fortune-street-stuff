@@ -1,7 +1,7 @@
 {
     "watchList": [
         {
-            "address": "816072FD",
+            "address": "816072FC",
             "baseIndex": 0,
             "label": "p1 name",
             "length": 22,
@@ -16,7 +16,7 @@
             "unsigned": false
         },
         {
-            "address": "81607381",
+            "address": "81607380",
             "baseIndex": 0,
             "label": "p2 name",
             "length": 22,
@@ -31,7 +31,7 @@
             "unsigned": false
         },
         {
-            "address": "81607405",
+            "address": "81607404",
             "baseIndex": 0,
             "label": "p3 name",
             "length": 22,
@@ -46,7 +46,7 @@
             "unsigned": false
         },
         {
-            "address": "81607489",
+            "address": "81607488",
             "baseIndex": 0,
             "label": "p4 name",
             "length": 22,

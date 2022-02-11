@@ -43,13 +43,13 @@ P4 Payments Num.;805510E7;Byte
 P4 Net Worth;805510FC;4 bytes (Word)
 P4 Stocks;80551100;4 bytes (Word)
 P4 Property;80551104;4 bytes (Word)
-P1 Name (CSWT);8160411D;array of bytes[22]
+P1 Name (CSWT);8160411C;array of bytes[22]
 P1 ID (CSWT);81604158;Byte
-P2 Name (CSWT);816041A1;array of bytes[22]
+P2 Name (CSWT);816041A0;array of bytes[22]
 P2 ID (CSWT);816041DC;Byte
-P3 Name (CSWT);81604225;array of bytes[22]
+P3 Name (CSWT);81604224;array of bytes[22]
 P3 ID (CSWT);81604260;Byte
-P4 Name (CSWT);816042A9;array of bytes[22]
+P4 Name (CSWT);816042A8;array of bytes[22]
 P4 ID (CSWT);816042E4;Byte
 Target Amount;8160432C;4 bytes (Word)
 Game ID;80000000;string[6]
