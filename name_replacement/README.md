@@ -20,4 +20,4 @@ Changes character names in-game without needing to modify the ISO or inject byte
 
 ## Links
 - [Custom Street Discord server](https://discord.gg/DE9Hn7T)
-- [Dolphin Memory Engine](https://github.com/aldelaro5/Dolphin-memory-engine)
+- [Dolphin Memory Engine](https://github.com/aldelaro5/Dolphin-memory-engine) standalone tool for Linux/Windows
