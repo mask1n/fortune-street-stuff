@@ -1,6 +1,7 @@
 # Name replacement script for Custom Street World Tour (CSWT)
 Changes character names in-game without needing to modify the ISO or manually inject bytes into memory
-![image](https://user-images.githubusercontent.com/83397594/153525128-cef5e3e0-39e9-48e1-8e5f-2a12a617e6e3.png)
+![image](https://user-images.githubusercontent.com/83397594/153533310-8102e3f8-719d-47e5-8709-835b3fe8b6ed.png)
+
 
 ## Requirements
 - This script assumes you've already patched an NTSC-U Fortune Street ISO with [Custom Street World Tour](https://github.com/FortuneStreetModding/CustomStreetWorldTour)
