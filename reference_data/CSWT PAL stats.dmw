@@ -1,0 +1,43 @@
+{
+    "watchList": [
+        {
+            "address": "81607338",
+            "baseIndex": 0,
+            "label": "No label",
+            "typeIndex": 0,
+            "unsigned": true
+        },
+        {
+            "address": "816072FC",
+            "baseIndex": 0,
+            "label": "P1 Name (JP)",
+            "length": 22,
+            "typeIndex": 6,
+            "unsigned": false
+        },
+        {
+            "address": "81607380",
+            "baseIndex": 0,
+            "label": "P2 Name (JP)",
+            "length": 22,
+            "typeIndex": 6,
+            "unsigned": false
+        },
+        {
+            "address": "81607404",
+            "baseIndex": 0,
+            "label": "P3 Name (JP)",
+            "length": 22,
+            "typeIndex": 6,
+            "unsigned": false
+        },
+        {
+            "address": "81607488",
+            "baseIndex": 0,
+            "label": "P4 Name (JP)",
+            "length": 22,
+            "typeIndex": 6,
+            "unsigned": false
+        }
+    ]
+}
