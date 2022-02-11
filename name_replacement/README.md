@@ -3,7 +3,7 @@ Changes character names in-game without needing to modify the ISO or inject byte
 ![image](https://user-images.githubusercontent.com/83397594/153525128-cef5e3e0-39e9-48e1-8e5f-2a12a617e6e3.png)
 
 ## Requirements
-- This script assumes you've already patched an NTSC Fortune Street ISO with [Custom Street World Tour](https://github.com/FortuneStreetModding/CustomStreetWorldTour)
+- This script assumes you've already patched an NTSC-U Fortune Street ISO with [Custom Street World Tour](https://github.com/FortuneStreetModding/CustomStreetWorldTour)
 - Python 3.6 or later
 - [Dolphin Emulator](https://dolphin-emu.org/)
 - [py-dolphin-memory-engine](https://github.com/henriquegemignani/py-dolphin-memory-engine) (optional if using the release version) (use `pip install dolphin-memory-engine` to install)
