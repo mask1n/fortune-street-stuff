@@ -8,6 +8,7 @@ Changes character names in-game without needing to modify the ISO or manually in
 - Python 3.6 or later
 - [Dolphin Emulator](https://dolphin-emu.org/)
 - [py-dolphin-memory-engine](https://github.com/henriquegemignani/py-dolphin-memory-engine) (optional if using the Windows release binary) (use `pip install dolphin-memory-engine` to install)
+- An x86_64-based version of Windows or Linux (currently DME lacks Mac support)
 
 ## How to use
 1. Start emulation in Dolphin
