@@ -133,12 +133,12 @@ elif gameid== "ST7E02" or gameid== "ST7P02":
     print("Custom Street World Tour detected")
 elif gameid== "ST7JGD":
     print("いただきストリートWii detected")
-    gameid= ((gameid[0:-3])) ##truncate region indicators from game ID after printing for brevity
-    if gameid=="ST7":
-        gameid = str(dolphin_memory_engine.read_bytes(0x80000000, 6)) ##regrab game id lol
-        gameid = ((gameid)[2:-1])  ##truncate b' and version number from gameid (the first two and last character)
-        waitformapselect(False)
-    else:
-        input("This script only supports Itadaki/Fortune/Boom Street and any associated mods")
+##    gameid= ((gameid[0:-3])) ##truncate region indicators from game ID
+##    if gameid=="ST7":
+##        gameid = str(dolphin_memory_engine.read_bytes(0x80000000, 6)) ##regrab game id lol
+##        gameid = ((gameid)[2:-1])  ##truncate b' and version number from gameid (the first two and last character)
+##        waitformapselect(False)
+elif gameid!="ST7E01" or gameid!="ST7E02" or gameid!="ST7P01" or gameid!="ST7P02" or gameid!="ST7JGD":
+        input("Game not supported, sorry!")
         exit()
 waitformapselect(False)
