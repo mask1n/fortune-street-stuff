@@ -5,8 +5,6 @@ import dolphin_memory_engine
 blanks = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 clearname = bytes(blanks)
 
-
-
 ## Name decoding and entry routine
 def nameentry():
     cswtp1 = 0x8160411C
@@ -99,7 +97,6 @@ def waitformapselect(printed):
     palscene = 0x808164EB
     jpscene = 0x808161EB
     print("Waiting for the board select screen...")
-    scenergn = ntscscene
     if gameid == "ST7E01" or gameid == "ST7E02":
         scenergn = ntscscene
     elif gameid == "ST7P01" or gameid == "ST7P02":
@@ -136,15 +133,12 @@ elif gameid== "ST7E02" or gameid== "ST7P02":
     print("Custom Street World Tour detected")
 elif gameid== "ST7JGD":
     print("いただきストリートWii detected")
-##    print("Game ID: " + (gameid))
     gameid= ((gameid[0:-3])) ##truncate region indicators from game ID after printing for brevity
     if gameid=="ST7":
         gameid = str(dolphin_memory_engine.read_bytes(0x80000000, 6)) ##regrab game id lol
         gameid = ((gameid)[2:-1])  ##truncate b' and version number from gameid (the first two and last character)
-        ##versionselect()
         waitformapselect(False)
     else:
         input("This script only supports Itadaki/Fortune/Boom Street and any associated mods")
         exit()
-
 waitformapselect(False)
