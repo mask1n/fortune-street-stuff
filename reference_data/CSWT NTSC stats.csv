@@ -1,0 +1,56 @@
+Name;Address[offsets] (in hex);Type
+P1 Turn Count;805501BE;2 bytes (Halfword)
+P1 Ready Cash;805501C0;4 bytes (Word)
+P1 Sales Total;8055022C;4 bytes (Word)
+P1 Payments Total;80550230;4 bytes (Word)
+P1 Sales Greatest;80550248;4 bytes (Word)
+P1 Payments Greatest;8055024C;4 bytes (Word)
+P1 Sales Num.;80550251;Byte
+P1 Payments Num.;80550253;Byte
+P1 Net Worth;80550268;4 bytes (Word)
+P1 Stocks;8055026C;4 bytes (Word)
+P1 Property;80550270;4 bytes (Word)
+P2 Turn Count;8055069A;2 bytes (Halfword)
+P2 Ready Cash;8055069C;4 bytes (Word)
+P2 Sales Total;80550708;4 bytes (Word)
+P2 Payments Total;8055070C;4 bytes (Word)
+P2 Sales Greatest;80550724;4 bytes (Word)
+P2 Payments Greatest;80550728;4 bytes (Word)
+P2 Sales Num.;8055072D;Byte
+P2 Payments Num.;8055072F;Byte
+P2 Net Worth;80550744;4 bytes (Word)
+P2 Stocks;80550748;4 bytes (Word)
+P2 Property;8055074C;4 bytes (Word)
+P3 Turn Count;80550B76;2 bytes (Halfword)
+P3 Ready Cash;80550B78;4 bytes (Word)
+P3 Sales Total;80550BE4;4 bytes (Word)
+P3 Payments Total;80550BE8;4 bytes (Word)
+P3 Sales Greatest;80550C00;4 bytes (Word)
+P3 Payments Greatest;80550C04;4 bytes (Word)
+P3 Sales Num.;80550C09;Byte
+P3 Payments Num.;80550C0B;Byte
+P3 Net Worth;80550C20;4 bytes (Word)
+P3 Stocks;80550C24;4 bytes (Word)
+P3 Property;80550C28;4 bytes (Word)
+P4 Turn Count;80551052;2 bytes (Halfword)
+P4 Ready Cash;80551054;4 bytes (Word)
+P4 Sales Total;805510C0;4 bytes (Word)
+P4 Payments Total;805510C4;4 bytes (Word)
+P4 Sales Greatest;805510DC;4 bytes (Word)
+P4 Payments Greatest;805510E0;4 bytes (Word)
+P4 Sales Num.;805510E5;Byte
+P4 Payments Num.;805510E7;Byte
+P4 Net Worth;805510FC;4 bytes (Word)
+P4 Stocks;80551100;4 bytes (Word)
+P4 Property;80551104;4 bytes (Word)
+P1 Name (CSWT);8160411D;array of bytes[22]
+P1 ID (CSWT);81604158;Byte
+P2 Name (CSWT);816041A1;array of bytes[22]
+P2 ID (CSWT);816041DC;Byte
+P3 Name (CSWT);81604225;array of bytes[22]
+P3 ID (CSWT);81604260;Byte
+P4 Name (CSWT);816042A9;array of bytes[22]
+P4 ID (CSWT);816042E4;Byte
+Target Amount;8160432C;4 bytes (Word)
+Game ID;80000000;string[6]
+Current (Menu) Scene;808162EB;Byte

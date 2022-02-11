@@ -1,0 +1,64 @@
+{
+    "watchList": [
+        {
+            "address": "816072FD",
+            "baseIndex": 0,
+            "label": "p1 name",
+            "length": 22,
+            "typeIndex": 6,
+            "unsigned": true
+        },
+        {
+            "address": "81607338",
+            "baseIndex": 0,
+            "label": "p1 id",
+            "typeIndex": 0,
+            "unsigned": false
+        },
+        {
+            "address": "81607381",
+            "baseIndex": 0,
+            "label": "p2 name",
+            "length": 22,
+            "typeIndex": 6,
+            "unsigned": false
+        },
+        {
+            "address": "816073BC",
+            "baseIndex": 0,
+            "label": "p2 id",
+            "typeIndex": 0,
+            "unsigned": false
+        },
+        {
+            "address": "81607405",
+            "baseIndex": 0,
+            "label": "p3 name",
+            "length": 22,
+            "typeIndex": 6,
+            "unsigned": false
+        },
+        {
+            "address": "81607440",
+            "baseIndex": 0,
+            "label": "p3 id",
+            "typeIndex": 0,
+            "unsigned": false
+        },
+        {
+            "address": "81607489",
+            "baseIndex": 0,
+            "label": "p4 name",
+            "length": 22,
+            "typeIndex": 6,
+            "unsigned": false
+        },
+        {
+            "address": "816074C4",
+            "baseIndex": 0,
+            "label": "p4 id",
+            "typeIndex": 0,
+            "unsigned": false
+        }
+    ]
+}

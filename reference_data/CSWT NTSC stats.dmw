@@ -1,0 +1,394 @@
+{
+    "watchList": [
+        {
+            "address": "805501BE",
+            "baseIndex": 0,
+            "label": "P1 Turn Count",
+            "typeIndex": 1,
+            "unsigned": true
+        },
+        {
+            "address": "805501C0",
+            "baseIndex": 0,
+            "label": "P1 Ready Cash",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "8055022C",
+            "baseIndex": 0,
+            "label": "P1 Sales Total",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550230",
+            "baseIndex": 0,
+            "label": "P1 Payments Total",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550248",
+            "baseIndex": 0,
+            "label": "P1 Sales Greatest",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "8055024C",
+            "baseIndex": 0,
+            "label": "P1 Payments Greatest",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550251",
+            "baseIndex": 0,
+            "label": "P1 Sales Num.",
+            "typeIndex": 0,
+            "unsigned": false
+        },
+        {
+            "address": "80550253",
+            "baseIndex": 0,
+            "label": "P1 Payments Num.",
+            "typeIndex": 0,
+            "unsigned": false
+        },
+        {
+            "address": "80550268",
+            "baseIndex": 0,
+            "label": "P1 Net Worth",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "8055026C",
+            "baseIndex": 0,
+            "label": "P1 Stocks",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550270",
+            "baseIndex": 0,
+            "label": "P1 Property",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "8055069A",
+            "baseIndex": 0,
+            "label": "P2 Turn Count",
+            "typeIndex": 1,
+            "unsigned": true
+        },
+        {
+            "address": "8055069C",
+            "baseIndex": 0,
+            "label": "P2 Ready Cash",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550708",
+            "baseIndex": 0,
+            "label": "P2 Sales Total",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "8055070C",
+            "baseIndex": 0,
+            "label": "P2 Payments Total",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550724",
+            "baseIndex": 0,
+            "label": "P2 Sales Greatest",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550728",
+            "baseIndex": 0,
+            "label": "P2 Payments Greatest",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "8055072D",
+            "baseIndex": 0,
+            "label": "P2 Sales Num.",
+            "typeIndex": 0,
+            "unsigned": false
+        },
+        {
+            "address": "8055072F",
+            "baseIndex": 0,
+            "label": "P2 Payments Num.",
+            "typeIndex": 0,
+            "unsigned": false
+        },
+        {
+            "address": "80550744",
+            "baseIndex": 0,
+            "label": "P2 Net Worth",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550748",
+            "baseIndex": 0,
+            "label": "P2 Stocks",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "8055074C",
+            "baseIndex": 0,
+            "label": "P2 Property",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550B76",
+            "baseIndex": 0,
+            "label": "P3 Turn Count",
+            "typeIndex": 1,
+            "unsigned": true
+        },
+        {
+            "address": "80550B78",
+            "baseIndex": 0,
+            "label": "P3 Ready Cash",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550BE4",
+            "baseIndex": 0,
+            "label": "P3 Sales Total",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550BE8",
+            "baseIndex": 0,
+            "label": "P3 Payments Total",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550C00",
+            "baseIndex": 0,
+            "label": "P3 Sales Greatest",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550C04",
+            "baseIndex": 0,
+            "label": "P3 Payments Greatest",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550C09",
+            "baseIndex": 0,
+            "label": "P3 Sales Num.",
+            "typeIndex": 0,
+            "unsigned": false
+        },
+        {
+            "address": "80550C0B",
+            "baseIndex": 0,
+            "label": "P3 Payments Num.",
+            "typeIndex": 0,
+            "unsigned": false
+        },
+        {
+            "address": "80550C20",
+            "baseIndex": 0,
+            "label": "P3 Net Worth",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550C24",
+            "baseIndex": 0,
+            "label": "P3 Stocks",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80550C28",
+            "baseIndex": 0,
+            "label": "P3 Property",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80551052",
+            "baseIndex": 0,
+            "label": "P4 Turn Count",
+            "typeIndex": 1,
+            "unsigned": true
+        },
+        {
+            "address": "80551054",
+            "baseIndex": 0,
+            "label": "P4 Ready Cash",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "805510C0",
+            "baseIndex": 0,
+            "label": "P4 Sales Total",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "805510C4",
+            "baseIndex": 0,
+            "label": "P4 Payments Total",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "805510DC",
+            "baseIndex": 0,
+            "label": "P4 Sales Greatest",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "805510E0",
+            "baseIndex": 0,
+            "label": "P4 Payments Greatest",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "805510E5",
+            "baseIndex": 0,
+            "label": "P4 Sales Num.",
+            "typeIndex": 0,
+            "unsigned": false
+        },
+        {
+            "address": "805510E7",
+            "baseIndex": 0,
+            "label": "P4 Payments Num.",
+            "typeIndex": 0,
+            "unsigned": false
+        },
+        {
+            "address": "805510FC",
+            "baseIndex": 0,
+            "label": "P4 Net Worth",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80551100",
+            "baseIndex": 0,
+            "label": "P4 Stocks",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "80551104",
+            "baseIndex": 0,
+            "label": "P4 Property",
+            "typeIndex": 2,
+            "unsigned": false
+        },
+        {
+            "address": "8160411D",
+            "baseIndex": 0,
+            "label": "P1 Name (CSWT)",
+            "length": 22,
+            "typeIndex": 6,
+            "unsigned": false
+        },
+        {
+            "address": "81604158",
+            "baseIndex": 0,
+            "label": "P1 ID (CSWT)",
+            "typeIndex": 0,
+            "unsigned": false
+        },
+        {
+            "address": "816041A1",
+            "baseIndex": 0,
+            "label": "P2 Name (CSWT)",
+            "length": 22,
+            "typeIndex": 6,
+            "unsigned": false
+        },
+        {
+            "address": "816041DC",
+            "baseIndex": 0,
+            "label": "P2 ID (CSWT)",
+            "typeIndex": 0,
+            "unsigned": false
+        },
+        {
+            "address": "81604225",
+            "baseIndex": 0,
+            "label": "P3 Name (CSWT)",
+            "length": 22,
+            "typeIndex": 6,
+            "unsigned": false
+        },
+        {
+            "address": "81604260",
+            "baseIndex": 0,
+            "label": "P3 ID (CSWT)",
+            "typeIndex": 0,
+            "unsigned": false
+        },
+        {
+            "address": "816042A9",
+            "baseIndex": 0,
+            "label": "P4 Name (CSWT)",
+            "length": 22,
+            "typeIndex": 6,
+            "unsigned": false
+        },
+        {
+            "address": "816042E4",
+            "baseIndex": 0,
+            "label": "P4 ID (CSWT)",
+            "typeIndex": 0,
+            "unsigned": false
+        },
+        {
+            "address": "8160432C",
+            "baseIndex": 0,
+            "label": "Target Amount",
+            "typeIndex": 2,
+            "unsigned": true
+        },
+        {
+            "address": "80000000",
+            "baseIndex": 0,
+            "label": "Game ID",
+            "length": 6,
+            "typeIndex": 5,
+            "unsigned": false
+        },
+        {
+            "address": "808162EB",
+            "baseIndex": 0,
+            "label": "Current (Menu) Scene",
+            "typeIndex": 0,
+            "unsigned": true
+        }
+    ]
+}

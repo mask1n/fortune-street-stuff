@@ -1,0 +1,9 @@
+Name;Address[offsets] (in hex);Type
+p1 name;816072FD;array of bytes[22]
+p1 id;81607338;Byte
+p2 name;81607381;array of bytes[22]
+p2 id;816073BC;Byte
+p3 name;81607405;array of bytes[22]
+p3 id;81607440;Byte
+p4 name;81607489;array of bytes[22]
+p4 id;816074C4;Byte
