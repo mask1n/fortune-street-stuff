@@ -7,14 +7,14 @@ clearname = bytes(blanks)
 
 ## Name decoding and entry routine
 def nameentry():
-    cswtp1 = 0x8160411C
-    cswtp2 = 0x816041A0
-    cswtp3 = 0x81604224
-    cswtp4 = 0x816042A8
-    cswtpalp1 = 0x8160507C
-    cswtpalp2 = 0x81605100
-    cswtpalp3 = 0x81605184
-    cswtpalp4 = 0x81605208
+#    cswtp1 = 0x8160411C
+#    cswtp2 = 0x816041A0
+#    cswtp3 = 0x81604224
+#    cswtp4 = 0x816042A8
+    cswtp1 = 0x816037FC
+    cswtp2 = 0x81603880
+    cswtp3 = 0x81603904
+    cswtp4 = 0x81603988
     basep1 = 0x816072FC
     basep2 = 0x81607380
     basep3 = 0x81607404
@@ -25,17 +25,17 @@ def nameentry():
         p3 = basep3
         p4 = basep4
     else:
-        if gameid=="ST7E02":
+        if gameid=="ST7E02" or gameid=="ST7P02":
             p1 = cswtp1
             p2 = cswtp2
             p3 = cswtp3
             p4 = cswtp4
-        else:
-                if gameid=="ST7P02":
-                    p1 = cswtpalp1
-                    p2 = cswtpalp2
-                    p3 = cswtpalp3
-                    p4 = cswtpalp4
+#        else:
+#                if gameid=="ST7P02":
+#                    p1 = cswtpalp1
+#                    p2 = cswtpalp2
+#                    p3 = cswtpalp3
+#                    p4 = cswtpalp4
 
     ## Grab character names from game memory
     ## (22 being the length of the longest name (Donkey Kong))
