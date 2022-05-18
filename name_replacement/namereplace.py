@@ -69,6 +69,7 @@ def nameentry():
     print("All done! Press ENTER to exit.")
     print("Any feedback or questions, please contact")
     input("@mask1n in the Custom Street Discord")
+    quit()
 
 ## Wait until players are at the map selection screen
 ## before allowing them to input their names
