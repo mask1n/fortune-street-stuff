@@ -1,16 +1,17 @@
 import time
 import dolphin_memory_engine
+import json
 
 ## 30 bytes for clearing out names
-blanks = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+blanks = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 clearname = bytes(blanks)
 
 ## Name decoding and entry routine
 def nameentry():
-    cswtp1 = 0x81602EFC
-    cswtp2 = 0x81602F80
-    cswtp3 = 0x81603004
-    cswtp4 = 0x81603088
+    cswtp1 = 0x8160209C
+    cswtp2 = 0x81602120
+    cswtp3 = 0x816021A4
+    cswtp4 = 0x81602228
     basep1 = 0x816072FC
     basep2 = 0x81607380
     basep3 = 0x81607404
