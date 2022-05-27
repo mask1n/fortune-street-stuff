@@ -2,8 +2,8 @@ import time
 import dolphin_memory_engine
 import json
 
-## 30 bytes for clearing out names
-blanks = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+## 18 bytes for clearing out names
+blanks = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 clearname = bytes(blanks)
 
 ## Name decoding and entry routine
@@ -46,7 +46,9 @@ def nameentry():
     p4name = p4name.replace('\x00', '')
     ## Showtime 8)
     print("OK, ready to go!")
+    print("Please make sure each player's name fits within 18 characters.")
     time.sleep(0.85)
+    print("")
     p1input = input("Who's controlling " + (p1name) + "? ")
     p2input = input("Who's controlling " + (p2name) + "? ")
     p3input = input("Who's controlling " + (p3name) + "? ")
@@ -56,6 +58,27 @@ def nameentry():
     p2sub = p2input.encode('utf-16be')
     p3sub = p3input.encode('utf-16be')
     p4sub = p4input.encode('utf-16be')
+    ## Check to see if name length fits within the 60-byte limit
+    while len(p1sub) > 36:
+        print("")
+        print(f"{p1input} exceeds the character limit by {int((len(p1sub)-36)/2)}!")
+        p1input = input("Please enter a shorter name: ")
+        p1sub = p1input.encode('utf-16be')
+    while len(p2sub) > 36:
+        print("")
+        print(f"{p2input} exceeds the character limit by {int((len(p2sub)-36)/2)}!")
+        p2input = input("Please enter a shorter name: ")
+        p2sub = p2input.encode('utf-16be')
+    while len(p3sub) > 36:
+        print("")
+        print(f"{p3input} exceeds the character limit by {int((len(p3sub)-36)/2)}!")
+        p3input = input("Please enter a shorter name: ")
+        p3sub = p3input.encode('utf-16be')
+    while len(p4sub) > 36:
+        print("")
+        print(f"{p4input} exceeds the character limit by {int((len(p4sub)-36)/2)}!")
+        p4input = input("Please enter a shorter name: ")
+        p4sub = p4input.encode('utf-16be')
     ## Blank out player names before insertion
     dolphin_memory_engine.write_bytes((p1), clearname)
     dolphin_memory_engine.write_bytes((p2), clearname)
@@ -66,6 +89,7 @@ def nameentry():
     dolphin_memory_engine.write_bytes((p2), p2sub)
     dolphin_memory_engine.write_bytes((p3), p3sub)
     dolphin_memory_engine.write_bytes((p4), p4sub)
+    print("")
     print("All done! Press ENTER to exit.")
     print("Any feedback or questions, please contact")
     input("@mask1n in the Custom Street Discord")
