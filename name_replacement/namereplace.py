@@ -1,6 +1,5 @@
 import time
 import dolphin_memory_engine
-import json
 
 ## 18 bytes for clearing out names
 blanks = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
@@ -8,25 +7,19 @@ clearname = bytes(blanks)
 
 ## Name decoding and entry routine
 def nameentry():
-    cswtp1 = 0x8160209C
-    cswtp2 = 0x81602120
-    cswtp3 = 0x816021A4
-    cswtp4 = 0x81602228
-    basep1 = 0x816072FC
-    basep2 = 0x81607380
-    basep3 = 0x81607404
-    basep4 = 0x81607488
-    if gameid == "ST7E01" or gameid == "ST7P01" or gameid == "ST7JGD":
-        p1 = basep1
-        p2 = basep2
-        p3 = basep3
-        p4 = basep4
-    else:
-        if gameid=="ST7E02" or gameid=="ST7P02":
-            p1 = cswtp1
-            p2 = cswtp2
-            p3 = cswtp3
-            p4 = cswtp4
+    if gameid == "ST7E01" or gameid == "ST7E02":  #Fortune Street
+        base = int.from_bytes(dolphin_memory_engine.read_bytes(0x8081727C, 4))
+
+    if gameid == "ST7P01" or gameid == "ST7P02": #Boom Street
+        base = int.from_bytes(dolphin_memory_engine.read_bytes(0x8081747C, 4))
+
+    if gameid == "ST7JGD": #いただきストリートWii
+        base = int.from_bytes(dolphin_memory_engine.read_bytes(0x8081717C, 4)) 
+    
+    p1 = base + 0x21C
+    p2 = base + 0x2A0
+    p3 = base + 0x324
+    p4 = base + 0x3A8
 
     ## Grab character names from game memory
     ## (22 being the length of the longest name (Donkey Kong))
@@ -58,7 +51,7 @@ def nameentry():
     p2sub = p2input.encode('utf-16be')
     p3sub = p3input.encode('utf-16be')
     p4sub = p4input.encode('utf-16be')
-    ## Check to see if name length fits within the 60-byte limit
+    ## Check to see if name length fits within the 36-byte limit
     while len(p1sub) > 36:
         print("")
         print(f"{p1input} exceeds the character limit by {int((len(p1sub)-36)/2)}!")
@@ -97,8 +90,7 @@ def nameentry():
 
 ## Wait until players are at the map selection screen
 ## before allowing them to input their names
-printed=False
-def waitformapselect(printed):
+def waitformapselect():
     ntscscene = 0x808162EB
     palscene = 0x808164EB
     jpscene = 0x808161EB
@@ -142,4 +134,4 @@ elif gameid== "ST7JGD":
 elif gameid!="ST7E01" or gameid!="ST7E02" or gameid!="ST7P01" or gameid!="ST7P02" or gameid!="ST7JGD":
         input("Game not supported, sorry!")
         exit()
-waitformapselect(False)
+waitformapselect()
