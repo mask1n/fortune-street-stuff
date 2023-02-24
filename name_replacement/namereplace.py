@@ -1,119 +1,11 @@
-import time
 import dolphin_memory_engine
+import time
 
 ## 18 bytes for clearing out names
-blanks = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-clearname = bytes(blanks)
+clearname = bytes([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
 
-## Name decoding and entry routine
-def nameentry():
-    if gameid == "ST7E01" or gameid == "ST7E02":  #Fortune Street
-        base = int.from_bytes(dolphin_memory_engine.read_bytes(0x8081727C, 4))
-
-    if gameid == "ST7P01" or gameid == "ST7P02": #Boom Street
-        base = int.from_bytes(dolphin_memory_engine.read_bytes(0x8081747C, 4))
-
-    if gameid == "ST7JGD": #いただきストリートWii
-        base = int.from_bytes(dolphin_memory_engine.read_bytes(0x8081717C, 4)) 
-    
-    p1 = base + 0x21C
-    p2 = base + 0x2A0
-    p3 = base + 0x324
-    p4 = base + 0x3A8
-
-    ## Grab character names from game memory
-    ## (22 being the length of the longest name (Donkey Kong))
-    ## (character names are encoded in memory in UTF-16BE)
-    p1name = (dolphin_memory_engine.read_bytes((p1), 22))
-    p2name = (dolphin_memory_engine.read_bytes((p2), 22))
-    p3name = (dolphin_memory_engine.read_bytes((p3), 22))
-    p4name = (dolphin_memory_engine.read_bytes((p4), 22))
-    ### Convert names from byte array to UTF-8 text then remove the filler null characters
-    p1name = str(p1name.decode('utf-16be'))
-    p1name = p1name.replace('\x00', '')
-    p2name = str(p2name.decode('utf-16be'))
-    p2name = p2name.replace('\x00', '')
-    p3name = str(p3name.decode('utf-16be'))
-    p3name = p3name.replace('\x00', '')
-    p4name = str(p4name.decode('utf-16be'))
-    p4name = p4name.replace('\x00', '')
-    ## Showtime 8)
-    print("OK, ready to go!")
-    print("Please make sure each player's name fits within 18 characters.")
-    time.sleep(0.85)
-    print("")
-    p1input = input("Who's controlling " + (p1name) + "? ")
-    p2input = input("Who's controlling " + (p2name) + "? ")
-    p3input = input("Who's controlling " + (p3name) + "? ")
-    p4input = input("Who's controlling " + (p4name) + "? ")
-    ## Encode player names in UTF-16BE
-    p1sub = p1input.encode('utf-16be')
-    p2sub = p2input.encode('utf-16be')
-    p3sub = p3input.encode('utf-16be')
-    p4sub = p4input.encode('utf-16be')
-    ## Check to see if name length fits within the 36-byte limit
-    while len(p1sub) > 36:
-        print("")
-        print(f"{p1input} exceeds the character limit by {int((len(p1sub)-36)/2)}!")
-        p1input = input("Please enter a shorter name: ")
-        p1sub = p1input.encode('utf-16be')
-    while len(p2sub) > 36:
-        print("")
-        print(f"{p2input} exceeds the character limit by {int((len(p2sub)-36)/2)}!")
-        p2input = input("Please enter a shorter name: ")
-        p2sub = p2input.encode('utf-16be')
-    while len(p3sub) > 36:
-        print("")
-        print(f"{p3input} exceeds the character limit by {int((len(p3sub)-36)/2)}!")
-        p3input = input("Please enter a shorter name: ")
-        p3sub = p3input.encode('utf-16be')
-    while len(p4sub) > 36:
-        print("")
-        print(f"{p4input} exceeds the character limit by {int((len(p4sub)-36)/2)}!")
-        p4input = input("Please enter a shorter name: ")
-        p4sub = p4input.encode('utf-16be')
-    ## Blank out player names before insertion
-    dolphin_memory_engine.write_bytes((p1), clearname)
-    dolphin_memory_engine.write_bytes((p2), clearname)
-    dolphin_memory_engine.write_bytes((p3), clearname)
-    dolphin_memory_engine.write_bytes((p4), clearname)
-    ## Inject new names
-    dolphin_memory_engine.write_bytes((p1), p1sub)
-    dolphin_memory_engine.write_bytes((p2), p2sub)
-    dolphin_memory_engine.write_bytes((p3), p3sub)
-    dolphin_memory_engine.write_bytes((p4), p4sub)
-    print("")
-    print("All done! Press ENTER to exit.")
-    print("Any feedback or questions, please contact")
-    input("@mask1n in the Custom Street Discord")
-    quit()
-
-## Wait until players are at the map selection screen
-## before allowing them to input their names
-def waitformapselect():
-    ntscscene = 0x808162EB
-    palscene = 0x808164EB
-    jpscene = 0x808161EB
-    print("Waiting for the board select screen...")
-    if gameid == "ST7E01" or gameid == "ST7E02":
-        scenergn = ntscscene
-    elif gameid == "ST7P01" or gameid == "ST7P02":
-            scenergn = palscene
-    elif gameid == "ST7JGD":
-            scenergn = jpscene
-    scene = (dolphin_memory_engine.read_byte(scenergn))
-    if scene == 7:
-        nameentry()
-    else:
-        while scene!= 7:
-            scene = (dolphin_memory_engine.read_byte(scenergn))
-            time.sleep(0.1)
-    if scene == 7:
-        nameentry()
-
-## Hooks into currently running Dolphin process
-## (emulation needs to already be started)
-## Also checks to see if user is running CSWT via Game ID
+# Hooks into currently running Dolphin process (emulation needs to already be started)
+# Also checks to see if user is running CSWT via Game ID
 dolphin_memory_engine.hook()
 if not dolphin_memory_engine.is_hooked():
     print("Couldn't hook into Dolphin :(")
@@ -121,17 +13,88 @@ if not dolphin_memory_engine.is_hooked():
     exit()
 else:
     print("Hooked into Dolphin!")
-    gameid= str(dolphin_memory_engine.read_bytes(0x80000000, 6))
-    gameid= ((gameid)[2:-1]) ##truncate b' and ' from gameid (the first two and last character)
-if gameid== "ST7E01":
-    print("Fortune Street detected")
-elif gameid== "ST7P01":
-    print("Boom Street detected")
-elif gameid== "ST7E02" or gameid== "ST7P02":
-    print("Custom Street World Tour detected")
-elif gameid== "ST7JGD":
-    print("いただきストリートWii detected")
-elif gameid!="ST7E01" or gameid!="ST7E02" or gameid!="ST7P01" or gameid!="ST7P02" or gameid!="ST7JGD":
-        input("Game not supported, sorry!")
-        exit()
+    gameid = dolphin_memory_engine.read_bytes(0x80000000, 6).decode('utf-8') # reads the game ID as a string
+    
+# 'Scene' refers to which screen the game's currently on (for this purpose, to guarantee that the main function starts
+# after characters have been selected)
+game_info = {
+    "ST7E01": {"name": "Fortune Street", "base_ptr": 0x8081727C, "scene_ptr": 0x808162EB},
+    "ST7P01": {"name": "Boom Street", "base_ptr": 0x8081747C, "scene_ptr": 0x808164EB},
+    "ST7E02": {"name": "Custom Street World Tour", "base_ptr": 0x8081727C, "scene_ptr": 0x808162EB},
+    "ST7P02": {"name": "Custom Street World Tour", "base_ptr": 0x8081747C, "scene_ptr": 0x808164EB},
+    "ST7JGD": {"name": "いただきストリートWii", "base_ptr": 0x8081717C, "scene_ptr": 0x808161EB}
+}
+
+if gameid in game_info: # Detects which version of the game is running
+    game_name = game_info[gameid]["name"]
+    base_ptr = game_info[gameid]["base_ptr"]
+    scene_ptr = game_info[gameid]["scene_ptr"]
+    base_addr = int.from_bytes(dolphin_memory_engine.read_bytes(base_ptr, 4))
+    print(f"{game_name} detected")
+else:
+    input("Game not supported, sorry!")
+    exit()
+
+def nameentry():
+    p1 = base_addr + 0x21C
+    p2 = base_addr + 0x2A0
+    p3 = base_addr + 0x324
+    p4 = base_addr + 0x3A8
+
+    # Grab character names from game memory (22 being the length of the longest name (Donkey Kong))
+    # Character names are encoded in UTF-16BE
+    p1name = dolphin_memory_engine.read_bytes(p1, 22).decode('utf-16be').replace('\x00', '')
+    p2name = dolphin_memory_engine.read_bytes(p2, 22).decode('utf-16be').replace('\x00', '')
+    p3name = dolphin_memory_engine.read_bytes(p3, 22).decode('utf-16be').replace('\x00', '')
+    p4name = dolphin_memory_engine.read_bytes(p4, 22).decode('utf-16be').replace('\x00', '')
+    
+    ## Showtime 8)
+    print("OK, ready to go!")
+    print("Please make sure each player's name fits within 18 characters.")
+    time.sleep(0.85)
+    print("")
+
+    def get_name_input(player_name):
+        name_input = input(f"Who's controlling {player_name}? ")
+        while len(name_input) > 18:
+            print(f"{name_input} exceeds the character limit by {len(name_input)-18}!")
+            name_input = input("Please enter a shorter name: ")
+        return name_input
+
+    p1input = get_name_input(p1name)
+    p2input = get_name_input(p2name)
+    p3input = get_name_input(p3name)
+    p4input = get_name_input(p4name)
+    
+    # Encode player names in UTF-16BE
+    p1sub = p1input.encode('utf-16be')
+    p2sub = p2input.encode('utf-16be')
+    p3sub = p3input.encode('utf-16be')
+    p4sub = p4input.encode('utf-16be')
+    
+    # Blank out player names before insertion
+    dolphin_memory_engine.write_bytes(p1, clearname)
+    dolphin_memory_engine.write_bytes(p2, clearname)
+    dolphin_memory_engine.write_bytes(p3, clearname)
+    dolphin_memory_engine.write_bytes(p4, clearname)
+    
+    # Inject new names
+    dolphin_memory_engine.write_bytes(p1, p1sub)
+    dolphin_memory_engine.write_bytes(p2, p2sub)
+    dolphin_memory_engine.write_bytes(p3, p3sub)
+    dolphin_memory_engine.write_bytes(p4, p4sub)
+    print("")
+    print("All done! Press ENTER to exit.")
+    print("Any feedback or questions, please contact")
+    input("@mask1n in the Custom Street Discord")
+    quit()
+
+# Wait until players are at the map selection screen before allowing them to input their names
+def waitformapselect():
+    print("Waiting for the board select screen...")
+    scene = (dolphin_memory_engine.read_byte(scene_ptr))
+    while scene!= 7:
+        scene = (dolphin_memory_engine.read_byte(scene_ptr))
+    nameentry()
+
 waitformapselect()
