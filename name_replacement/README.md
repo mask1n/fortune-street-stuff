@@ -18,6 +18,9 @@ Changes character names in-game without needing to modify the ISO or manually in
 
 ## Limitations
 - The game has an *18-character* limit for player names
+- Although Hiragana and Katakana are supported for Japanese names (as well as various symbols), there are only 139 Kanji that render correctly in-game. These include the following:
+
+  一三上下中了二人介代伊会伝保修入内出力加勇勝北協原友取口可名和品営土地基堂報多大天太夫妙子安定小山島工常平幸広式後志恵悟愛成手持揮文新明晶曲月有望木本株業楽横次正武歩水河海渉渡片理由画登白目直相真知石社神竜管範純細絵緒置美義良英草裕貴賢軽辺近連達部野量金長間関陽雄雅集青香馬高黒
 
 ## Links
 - [Custom Street Discord server](https://discord.gg/DE9Hn7T)
