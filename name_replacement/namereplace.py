@@ -1,11 +1,11 @@
 import dolphin_memory_engine
 import time
+from game_font import charset
 
 ## 18 bytes for clearing out names
-clearname = bytes([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+clearname = bytes([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
 
 # Hooks into currently running Dolphin process (emulation needs to already be started)
-# Also checks to see if user is running CSWT via Game ID
 dolphin_memory_engine.hook()
 if not dolphin_memory_engine.is_hooked():
     print("Couldn't hook into Dolphin :(")
@@ -18,17 +18,17 @@ else:
 # 'Scene' refers to which screen the game's currently on (for this purpose, to guarantee that the main function starts
 # after characters have been selected)
 game_info = {
-    "ST7E01": {"name": "Fortune Street", "base_ptr": 0x8081727C, "scene_ptr": 0x808162EB},
-    "ST7P01": {"name": "Boom Street", "base_ptr": 0x8081747C, "scene_ptr": 0x808164EB},
-    "ST7E02": {"name": "Custom Street World Tour", "base_ptr": 0x8081727C, "scene_ptr": 0x808162EB},
-    "ST7P02": {"name": "Custom Street World Tour", "base_ptr": 0x8081747C, "scene_ptr": 0x808164EB},
-    "ST7JGD": {"name": "いただきストリートWii", "base_ptr": 0x8081717C, "scene_ptr": 0x808161EB}
+    "ST7E01": {"name": "Fortune Street", "base_ptr": 0x8081727C, "scene_addr": 0x808162EB},
+    "ST7P01": {"name": "Boom Street", "base_ptr": 0x8081747C, "scene_addr": 0x808164EB},
+    "ST7E02": {"name": "Custom Street World Tour", "base_ptr": 0x8081727C, "scene_addr": 0x808162EB},
+    "ST7P02": {"name": "Custom Street World Tour", "base_ptr": 0x8081747C, "scene_addr": 0x808164EB},
+    "ST7JGD": {"name": "いただきストリートWii", "base_ptr": 0x8081717C, "scene_addr": 0x808161EB}
 }
 
 if gameid in game_info: # Detects which version of the game is running
     game_name = game_info[gameid]["name"]
     base_ptr = game_info[gameid]["base_ptr"]
-    scene_ptr = game_info[gameid]["scene_ptr"]
+    scene_addr = game_info[gameid]["scene_addr"]
     base_addr = int.from_bytes(dolphin_memory_engine.read_bytes(base_ptr, 4))
     print(f"{game_name} detected")
 else:
@@ -41,7 +41,7 @@ def nameentry():
     p3 = base_addr + 0x324
     p4 = base_addr + 0x3A8
 
-    # Grab character names from game memory (22 being the length of the longest name (Donkey Kong))
+    # Grab character names from game memory (22 being the byte length of the longest name (Donkey Kong))
     # Character names are encoded in UTF-16BE
     p1name = dolphin_memory_engine.read_bytes(p1, 22).decode('utf-16be').replace('\x00', '')
     p2name = dolphin_memory_engine.read_bytes(p2, 22).decode('utf-16be').replace('\x00', '')
@@ -55,11 +55,17 @@ def nameentry():
     print("")
 
     def get_name_input(player_name):
-        name_input = input(f"Who's controlling {player_name}? ")
-        while len(name_input) > 18:
-            print(f"{name_input} exceeds the character limit by {len(name_input)-18}!")
-            name_input = input("Please enter a shorter name: ")
-        return name_input
+        while True:
+            name_input = input(f"Who's playing as {player_name}? ")
+            invalid_chars = set(name_input) - set(charset)  # subtract any characters in name_input that are from charset
+            if invalid_chars:                               # if there's anything left in invalid_chars, the name itself is invalid 
+                print(f"Sorry, try entering a name without these characters: {invalid_chars}")
+                continue
+            if len(name_input) > 18:
+                print(f"{name_input} exceeds the character limit by {len(name_input)-18}!")
+                continue
+                #name_input = input("Please enter a shorter name: ")
+            return name_input
 
     p1input = get_name_input(p1name)
     p2input = get_name_input(p2name)
@@ -92,9 +98,9 @@ def nameentry():
 # Wait until players are at the map selection screen before allowing them to input their names
 def waitformapselect():
     print("Waiting for the board select screen...")
-    scene = (dolphin_memory_engine.read_byte(scene_ptr))
+    scene = (dolphin_memory_engine.read_byte(scene_addr))
     while scene!= 7:
-        scene = (dolphin_memory_engine.read_byte(scene_ptr))
+        scene = (dolphin_memory_engine.read_byte(scene_addr))
     nameentry()
 
 waitformapselect()
