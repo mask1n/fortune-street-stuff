@@ -11,10 +11,13 @@ Changes character names in-game without needing to modify the ISO or manually in
 - An x86_64-based version of Windows or Linux (currently DME lacks Mac support)
 
 ## How to use
-1. Start emulation in Dolphin
-2. Run `namereplace.py` (or [namereplace.exe](https://github.com/mask1n/fortune-street-stuff/releases/latest) for Windows users if you're using the release version)
-3. After selecting your characters and advancing to the board selection screen, you'll be prompted to input each player's name.
-4. Enjoy! 😃
+1. Windows: Download [namereplace.exe](https://github.com/mask1n/fortune-street-stuff/releases/latest) (*note: Windows might falsely detect this as a suspicious application - this is normal for apps compiled with PyInstaller. If you're still wary of running the executable, try the Linux/Windows method below.
+
+   Linux/Windows: Clone this repository or download both `namereplace.py` and `game_font.py`, as long as both of these files are in the same folder
+2. Start emulation in Dolphin
+3. Run either the name_replace Python script or executable
+4. After selecting your characters and advancing to the board selection screen, you'll be prompted to input each player's name.
+5. Enjoy! 😃
 
 ## Limitations
 - The game has an *18-character* limit for player names
