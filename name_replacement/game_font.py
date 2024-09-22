@@ -1,5 +1,3 @@
-import os
-
 ## Used to sanity check user input
 ## Incompatible names will be rejected, and user will be asked to re-input
 charset = """ !"#$%&'()*+,-./0123456789:;<=>?@
@@ -63,4 +61,3 @@ abcdefghijklmnopqrstuvwxyz
 ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ
 ～￥
 """
-#print((charset.replace("\n", "")))

@@ -9,8 +9,9 @@ clearname = bytes([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
 dolphin_memory_engine.hook()
 if not dolphin_memory_engine.is_hooked():
     print("Couldn't hook into Dolphin :(")
-    input("Please make sure that emulation's started, then run this script again.")
-    exit()
+    print("Any feedback or questions, please contact")
+    input("@mask1n in the Custom Street Discord")
+    quit()
 else:
     print("Hooked into Dolphin!")
     gameid = dolphin_memory_engine.read_bytes(0x80000000, 6).decode('utf-8') # reads the game ID as a string
@@ -20,9 +21,10 @@ else:
 game_info = {
     "ST7E01": {"name": "Fortune Street", "base_ptr": 0x8081727C, "scene_addr": 0x808162EB},
     "ST7P01": {"name": "Boom Street", "base_ptr": 0x8081747C, "scene_addr": 0x808164EB},
-    "ST7E02": {"name": "Custom Street World Tour", "base_ptr": 0x8081727C, "scene_addr": 0x808162EB},
-    "ST7P02": {"name": "Custom Street World Tour", "base_ptr": 0x8081747C, "scene_addr": 0x808164EB},
-    "ST7JGD": {"name": "いただきストリートWii", "base_ptr": 0x8081717C, "scene_addr": 0x808161EB}
+    "ST7E02": {"name": "Fortune Street mod", "base_ptr": 0x8081727C, "scene_addr": 0x808162EB},
+    "ST7P02": {"name": "Boom Street mod", "base_ptr": 0x8081747C, "scene_addr": 0x808164EB},
+    "ST7JGD": {"name": "いただきストリートWii", "base_ptr": 0x8081717C, "scene_addr": 0x808161EB},
+    "ST7J02": {"name": "いただきストリートWii mod", "base_ptr": 0x8081717C, "scene_addr": 0x808161EB}
 }
 
 if gameid in game_info: # Detects which version of the game is running
