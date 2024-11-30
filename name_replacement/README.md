@@ -1,19 +1,19 @@
-# Name Replacement Script for Itadaki/Fortune/Boom Street
+# Itadaki/Fortune/Boom Street Name Replacement Tool
 Changes character names in-game without needing to modify the ISO or manually inject bytes into memory
 ![image](https://user-images.githubusercontent.com/83397594/153533310-8102e3f8-719d-47e5-8709-835b3fe8b6ed.png)
 
 
 ## Requirements
-- An ISO/WBFS file of either **いただきストリートWii** (ST7JGD), **Fortune Street** (ST7E01), **Boom Street** (ST7P01) or **Custom Street World Tour** (ST7E02, ST7P02)
-- Python 3.6 or later
-- [Dolphin Emulator](https://dolphin-emu.org/)
+- An ISO/WBFS file of either **いただきストリートWii** (ST7JGD), **Fortune Street** (ST7E01), **Boom Street** (ST7P01) or **Custom Street World Tour** (ST7E02, ST7P02, ST7J02)
+- Python 3.9 or later
+- [Dolphin Emulator](https://dolphin-emu.org/) 5.0 or newer
+- a computer running 64-bit Windows (at least 8, though preferably 10/11), Linux or macOS that meets Dolphin's system requirements
 - [py-dolphin-memory-engine](https://github.com/henriquegemignani/py-dolphin-memory-engine) (optional if using the Windows release binary) (use `pip install dolphin-memory-engine` to install)
-- An x86_64-based version of Windows or Linux (currently DME lacks Mac support)
 
 ## How to use
-1. Windows: Download [namereplace.exe](https://github.com/mask1n/fortune-street-stuff/releases/latest) (*note: Windows might falsely detect this as a suspicious application - this is normal for apps compiled with PyInstaller. If you're still wary of running the executable, try the Linux/Windows method below.
+1. Windows: Download [namereplace.exe](https://github.com/mask1n/fortune-street-stuff/releases/latest) (*note: Windows might falsely detect this as a suspicious application - this is normal for apps compiled with PyInstaller. If you're still wary of running the executable, try the below method instead.)
 
-   Linux/Windows: Clone this repository or download both `namereplace.py` and `game_font.py`, as long as both of these files are in the same folder
+   All platforms: Clone this repository or download it as a zip, then within the name_replacement folder run `pip install -r requirements.txt` from terminal/command line
 2. Start emulation in Dolphin
 3. Run either the name_replace Python script or executable
 4. After selecting your characters and advancing to the board selection screen, you'll be prompted to input each player's name.
@@ -21,7 +21,7 @@ Changes character names in-game without needing to modify the ISO or manually in
 
 ## Limitations
 - The game has an *18-character* limit for player names
-- Although Hiragana and Katakana are supported for Japanese names (as well as various symbols), there are only 400 that can be used in-game. These include the following:
+- Although hiragana and katakana are supported for Japanese names (as well as various symbols), there are only about 400 kanji that can be used in-game. These include the following:
   <details><summary>(Click to expand/collapse table)</summary>
 
     | Kanji | UTF-16 |
@@ -430,7 +430,7 @@ Changes character names in-game without needing to modify the ISO or manually in
 
 ## Links
 - [Custom Street Discord server](https://discord.gg/DE9Hn7T)
-- [Dolphin Memory Engine](https://github.com/aldelaro5/Dolphin-memory-engine) standalone tool for Linux/Windows
+- [Dolphin Memory Engine](https://github.com/aldelaro5/Dolphin-memory-engine) standalone tool for Linux/Windows/macOS
 
 ## Shoutouts
 - _Deflaktor_ for assistance with finding pointers
