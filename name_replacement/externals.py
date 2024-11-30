@@ -1,6 +1,40 @@
+import locale
+import platform
+import langcodes
+import pycountry
+
+languages = ['en','ja','dk','de','es','fr','it']
+
+def map_windows_locale_to_standard(locale_name):
+    parts = locale_name.split('_')
+    if len(parts) == 2:
+        language_name, country_name = parts
+
+        # Get the ISO 639-1 language code
+        language_code = langcodes.find(language_name).language
+
+        # Get the ISO 3166-1 alpha-2 country code
+        country = pycountry.countries.get(name=country_name)
+        country_code = country.alpha_2 if country else ''
+
+        if language_code and country_code:
+            return f"{language_code}_{country_code}"
+
+    return None  # Return None if mapping is not possible
+
+lng = locale.getlocale()[0]
+
+match platform.system():
+    case 'Windows':
+        user_lang = map_windows_locale_to_standard(lng)[:2]
+    case 'Darwin':
+        user_lang = lng[:2]
+    case 'Linux':
+        user_lang = lng[:2]
+
 ## Used to sanity check user input
 ## Incompatible names will be rejected, and user will be asked to re-input
-charset = """ !"#$%&'()*+,-./0123456789:;<=>?@
+character_set = set(r""" !"#$%&'()*+,-./0123456789:;<=>?@
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 [\]^_`
 abcdefghijklmnopqrstuvwxyz
@@ -60,4 +94,7 @@ abcdefghijklmnopqrstuvwxyz
 ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ
 ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ
 ～￥
-"""
+""")
+
+if __name__ == '__main__':
+    print(user_lang)
